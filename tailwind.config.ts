@@ -7,18 +7,20 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    colors: {
-      background: "F8F4F9",
-      red: "FB3640",
-      violet: "A36BAD",
-      purple: "6A62AC",
-      darkPurple: "49437E",
-      blue: "46AEE2",
-      green: "0A8754",
-    },
-    fontFamily: {
-      body: ["Quicksand", "sans-serif"],
-      head: ["Yeseva One", "cursive"],
+    extend: {
+      colors: {
+        background: "F8F4F9",
+        red: "FB3640",
+        violet: "A36BAD",
+        purple: "6A62AC",
+        darkPurple: "49437E",
+        blue: "46AEE2",
+        green: "0A8754",
+      },
+      fontFamily: {
+        body: ["Quicksand", "sans-serif"],
+        head: ["Yeseva One", "cursive"],
+      },
     },
   },
   plugins: [],
