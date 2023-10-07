@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import Image from "next/image";
 
@@ -105,9 +106,10 @@ export default function Home() {
                     <div className="flex h-16 shrink-0 items-center">
                       <img
                         className="h-8 w-auto"
-                        src="https://cdn-icons-png.flaticon.com/512/572/572587.png"
+                        src="https://i.ibb.co/d2FzmCf/logo-Transparent.png"
                         alt="PLUMS"
                       />
+                      <h1 className="text-white">PLUMS</h1>
                     </div>
                     <nav className="flex flex-1 flex-col">
                       <ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -192,9 +194,10 @@ export default function Home() {
             <div className="flex h-16 shrink-0 items-center">
               <img
                 className="h-8 w-auto"
-                src="https://cdn-icons-png.flaticon.com/512/572/572587.png"
-                alt="PLUMS"
+                src="https://i.ibb.co/d2FzmCf/logo-Transparent.png"
+                alt="PLUMS logo"
               />
+              <h1 className="text-white">PLUMS</h1>
             </div>
             <nav className="flex flex-1 flex-col">
               <ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -331,7 +334,7 @@ export default function Home() {
                         className="ml-4 text-sm font-semibold leading-6 text-gray-900"
                         aria-hidden="true"
                       >
-                        Tom Cook
+                        Kevin Allred
                       </span>
                       <ChevronDownIcon
                         className="ml-2 h-5 w-5 text-gray-400"
