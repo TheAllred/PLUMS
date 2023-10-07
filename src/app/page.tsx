@@ -22,16 +22,16 @@ import {
 
 const navigation = [
   { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-  { name: "Team", href: "#", icon: UsersIcon, current: false },
-  { name: "Projects", href: "#", icon: FolderIcon, current: false },
+  { name: "Users", href: "#", icon: UsersIcon, current: false },
+  { name: "Courses", href: "#", icon: FolderIcon, current: false },
   { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
   { name: "Documents", href: "#", icon: DocumentDuplicateIcon, current: false },
-  { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
+  { name: "Resources", href: "#", icon: ChartPieIcon, current: false },
 ];
 const teams = [
-  { id: 1, name: "Heroicons", href: "#", initial: "H", current: false },
-  { id: 2, name: "Tailwind Labs", href: "#", initial: "T", current: false },
-  { id: 3, name: "Workcation", href: "#", initial: "W", current: false },
+  { id: 1, name: "Personal", href: "#", initial: "P", current: false },
+  { id: 2, name: "Family", href: "#", initial: "F", current: false },
+  { id: 3, name: "School", href: "#", initial: "S", current: false },
 ];
 const userNavigation = [
   { name: "Your profile", href: "#" },
@@ -105,8 +105,8 @@ export default function Home() {
                     <div className="flex h-16 shrink-0 items-center">
                       <img
                         className="h-8 w-auto"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=white"
-                        alt="Your Company"
+                        src="https://cdn-icons-png.flaticon.com/512/572/572587.png"
+                        alt="PLUMS"
                       />
                     </div>
                     <nav className="flex flex-1 flex-col">
@@ -192,8 +192,8 @@ export default function Home() {
             <div className="flex h-16 shrink-0 items-center">
               <img
                 className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=white"
-                alt="Your Company"
+                src="https://cdn-icons-png.flaticon.com/512/572/572587.png"
+                alt="PLUMS"
               />
             </div>
             <nav className="flex flex-1 flex-col">
@@ -323,7 +323,7 @@ export default function Home() {
                     <span className="sr-only">Open user menu</span>
                     <img
                       className="h-8 w-8 rounded-full bg-gray-50"
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                      src="https://ca.slack-edge.com/T4ZKTJUEB-U02T7G4UHGQ-a9e42cf785ce-512"
                       alt=""
                     />
                     <span className="hidden lg:flex lg:items-center">
