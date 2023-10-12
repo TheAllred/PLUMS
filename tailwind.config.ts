@@ -9,13 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "F8F4F9",
-        red: "FB3640",
-        violet: "A36BAD",
-        purple: "6A62AC",
-        darkPurple: "49437E",
-        blue: "46AEE2",
-        green: "0A8754",
+        background: "#F8F4F9",
+        red: "#FB3640",
+        violet: "#A36BAD",
+        purple: "#6A62AC",
+        darkPurple: "#49437E",
+        blue: "#46AEE2",
+        green: "#0A8754",
       },
       fontFamily: {
         body: ["Quicksand", "sans-serif"],
