@@ -21,11 +21,8 @@ import {
 
 const navigation = [
   { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-  { name: "Users", href: "#", icon: UsersIcon, current: false },
-  { name: "Courses", href: "#", icon: FolderIcon, current: false },
-  { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
-  { name: "Documents", href: "#", icon: DocumentDuplicateIcon, current: false },
-  { name: "Resources", href: "#", icon: ChartPieIcon, current: false },
+  { name: "Topics", href: "#", icon: FolderIcon, current: false },
+  { name: "Resources", href: "#", icon: DocumentDuplicateIcon, current: false },
 ];
 const teams = [
   { id: 1, name: "Personal", href: "#", initial: "P", current: false },
@@ -100,27 +97,27 @@ export default function Home({ children }: { children: React.ReactNode }) {
                     </div>
                   </Transition.Child>
                   {/* Sidebar component, swap this element with another sidebar if you like */}
-                  <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-indigo-600 px-6 pb-4">
+                  <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-background px-6 pb-4">
                     <div className="flex h-16 shrink-0 items-center">
                       <img
-                        className="h-8 w-auto"
+                        className="h-12 w-auto"
                         src="https://i.ibb.co/WyhyrDN/logo-Transparent.png"
                         alt="PLUMS"
                       />
-                      <h1 className="text-white font-head">PLUMS</h1>
+                      <h1 className="text-darkPurple font-head p-3">PLUMS</h1>
                     </div>
                     <nav className="flex flex-1 flex-col">
                       <ul role="list" className="flex flex-1 flex-col gap-y-7">
                         <li>
-                          <ul role="list" className="-mx-2 space-y-1">
+                          <ul role="list" className="-mx-2 space-y-1 font-body">
                             {navigation.map((item) => (
                               <li key={item.name}>
                                 <a
                                   href={item.href}
                                   className={classNames(
                                     item.current
-                                      ? "bg-indigo-700 text-white"
-                                      : "text-indigo-200 hover:text-white hover:bg-indigo-700",
+                                      ? "bg-purple text-white"
+                                      : "text-darkPurple hover:text-white hover:bg-darkPuple",
                                     "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                                   )}
                                 >
@@ -128,7 +125,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                                     className={classNames(
                                       item.current
                                         ? "text-white"
-                                        : "text-indigo-200 group-hover:text-white",
+                                        : "text-darkPurple group-hover:text-white",
                                       "h-6 w-6 shrink-0"
                                     )}
                                     aria-hidden="true"
@@ -140,22 +137,25 @@ export default function Home({ children }: { children: React.ReactNode }) {
                           </ul>
                         </li>
                         <li>
-                          <div className="text-xs font-semibold leading-6 text-indigo-200">
+                          <div className="text-m font-bold leading-6 text-darkPurple font-body">
                             Your teams
                           </div>
-                          <ul role="list" className="-mx-2 mt-2 space-y-1">
+                          <ul
+                            role="list"
+                            className="-mx-2 mt-2 space-y-1 font-body"
+                          >
                             {teams.map((team) => (
                               <li key={team.name}>
                                 <a
                                   href={team.href}
                                   className={classNames(
                                     team.current
-                                      ? "bg-indigo-700 text-white"
-                                      : "text-indigo-200 hover:text-white hover:bg-indigo-700",
+                                      ? "bg-purple text-white"
+                                      : "text-purple hover:text-white hover:bg-darkPurple",
                                     "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                                   )}
                                 >
-                                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-indigo-400 bg-indigo-500 text-[0.625rem] font-medium text-white">
+                                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-darkPurple bg-purple text-[0.625rem] font-medium text-white font-head">
                                     {team.initial}
                                   </span>
                                   <span className="truncate">{team.name}</span>
@@ -167,10 +167,10 @@ export default function Home({ children }: { children: React.ReactNode }) {
                         <li className="mt-auto">
                           <a
                             href="#"
-                            className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-indigo-200 hover:bg-indigo-700 hover:text-white"
+                            className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-blue hover:bg-darkBlue hover:text-white font-body"
                           >
                             <Cog6ToothIcon
-                              className="h-6 w-6 shrink-0 text-indigo-200 group-hover:text-white"
+                              className="h-6 w-6 shrink-0 text-blue group-hover:text-white"
                               aria-hidden="true"
                             />
                             Settings
@@ -188,27 +188,27 @@ export default function Home({ children }: { children: React.ReactNode }) {
         {/* Static sidebar for desktop */}
         <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-indigo-600 px-6 pb-4">
+          <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-background px-6 pb-4">
             <div className="flex h-16 shrink-0 items-center">
               <img
                 className="h-12 w-auto"
                 src="https://i.ibb.co/WyhyrDN/logo-Transparent.png"
                 alt="PLUMS logo"
               />
-              <h1 className="text-white font-head p-3">PLUMS</h1>
+              <h1 className="text-darkPurple font-head p-3">PLUMS</h1>
             </div>
             <nav className="flex flex-1 flex-col">
               <ul role="list" className="flex flex-1 flex-col gap-y-7">
                 <li>
-                  <ul role="list" className="-mx-2 space-y-1">
+                  <ul role="list" className="-mx-2 space-y-1 font-body">
                     {navigation.map((item) => (
                       <li key={item.name}>
                         <a
                           href={item.href}
                           className={classNames(
                             item.current
-                              ? "bg-indigo-700 text-white"
-                              : "text-indigo-200 hover:text-white hover:bg-indigo-700",
+                              ? "bg-purple text-white"
+                              : "text-darkPurple hover:text-white hover:bg-darkPurple",
                             "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                           )}
                         >
@@ -216,7 +216,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                             className={classNames(
                               item.current
                                 ? "text-white"
-                                : "text-indigo-200 group-hover:text-white",
+                                : "text-darkPurple group-hover:text-white",
                               "h-6 w-6 shrink-0"
                             )}
                             aria-hidden="true"
@@ -228,7 +228,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                   </ul>
                 </li>
                 <li>
-                  <div className="text-xs font-semibold leading-6 text-indigo-200">
+                  <div className="text-m font-bold leading-6 text-darkPurple font-body">
                     Your teams
                   </div>
                   <ul role="list" className="-mx-2 mt-2 space-y-1">
@@ -238,15 +238,17 @@ export default function Home({ children }: { children: React.ReactNode }) {
                           href={team.href}
                           className={classNames(
                             team.current
-                              ? "bg-indigo-700 text-white"
-                              : "text-indigo-200 hover:text-white hover:bg-indigo-700",
+                              ? "bg-purple text-white"
+                              : "text-purple hover:text-white hover:bg-darkPurple",
                             "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                           )}
                         >
-                          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-indigo-400 bg-indigo-500 text-[0.625rem] font-medium text-white">
+                          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-darkPurple bg-purple text-[0.625rem] font-medium text-white font-head">
                             {team.initial}
                           </span>
-                          <span className="truncate">{team.name}</span>
+                          <span className="truncate font-body">
+                            {team.name}
+                          </span>
                         </a>
                       </li>
                     ))}
@@ -255,10 +257,10 @@ export default function Home({ children }: { children: React.ReactNode }) {
                 <li className="mt-auto">
                   <a
                     href="#"
-                    className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-indigo-200 hover:bg-indigo-700 hover:text-white"
+                    className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-blue hover:bg-darkBlue hover:text-white font-body"
                   >
                     <Cog6ToothIcon
-                      className="h-6 w-6 shrink-0 text-indigo-200 group-hover:text-white"
+                      className="h-6 w-6 shrink-0 text-blue group-hover:text-white"
                       aria-hidden="true"
                     />
                     Settings
@@ -288,7 +290,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
 
             <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
               <form className="relative flex flex-1" action="#" method="GET">
-                <label htmlFor="search-field" className="sr-only">
+                <label htmlFor="search-field" className="sr-only font-body">
                   Search
                 </label>
                 <MagnifyingGlassIcon
@@ -297,7 +299,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                 />
                 <input
                   id="search-field"
-                  className="block h-full w-full border-0 py-0 pl-8 pr-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm"
+                  className="block h-full w-full border-0 py-0 pl-8 pr-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm font-body"
                   placeholder="Search..."
                   type="search"
                   name="search"
@@ -329,7 +331,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                     />
                     <span className="hidden lg:flex lg:items-center">
                       <span
-                        className="ml-4 text-sm font-semibold leading-6 text-gray-900"
+                        className="ml-4 text-sm leading-6 text-gray-900 font-head"
                         aria-hidden="true"
                       >
                         Kevin Allred
@@ -349,7 +351,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none">
+                    <Menu.Items className="absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none font-body">
                       {userNavigation.map((item) => (
                         <Menu.Item key={item.name}>
                           {({ active }) => (
