@@ -7,18 +7,24 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <div className="flex place-content-center">
-      <img
-        className="h-32"
-        src="https://i.ibb.co/WyhyrDN/logo-Transparent.png"
-        alt="PLUMS"
-      />
-      <div>
-        <h1 className="font-head text-8xl text-center">PLUMS</h1>
-        <h2 className="font-head text-center">
-          Nurturing Knowledge, Growing Success!
-        </h2>
+    <>
+      <div className="flex place-content-center">
+        <img
+          className="h-32"
+          src="https://imageupload.io/6qkITxruv1dwWU1"
+          alt="PLUMS"
+        />
+        <div>
+          <h1 className="font-head text-8xl text-center">PLUMS</h1>
+          <h2 className="font-head text-center">
+            Nurturing Knowledge, Growing Success!
+          </h2>
+        </div>
       </div>
-    </div>
+
+      <div>
+        <h2 className="font-head text-3xl pt-10 pl-10">Pinned Topics</h2>
+      </div>
+    </>
   );
 }

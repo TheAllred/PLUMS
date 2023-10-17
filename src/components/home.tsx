@@ -20,8 +20,8 @@ import {
 } from "@heroicons/react/20/solid";
 
 const navigation = [
-  { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-  { name: "Topics", href: "#", icon: FolderIcon, current: false },
+  { name: "Dashboard", href: "/", icon: HomeIcon, current: true },
+  { name: "Topics", href: "/cards", icon: FolderIcon, current: false },
   { name: "Resources", href: "#", icon: DocumentDuplicateIcon, current: false },
 ];
 const teams = [
