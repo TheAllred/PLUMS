@@ -19,8 +19,9 @@ const config: Config = {
         green: "#0A8754",
       },
       fontFamily: {
-        body: ["Quicksand", "sans-serif"],
-        head: ["Yeseva One", "cursive"],
+        head: ["Quicksand", "sans-serif"],
+        body: ["Mooli", "sans-serif"],
+        logo: ["Yeseva One", "cursive"],
       },
     },
   },

@@ -104,12 +104,12 @@ export default function Home({ children }: { children: React.ReactNode }) {
                         src="images/logoTransparent.png"
                         alt="PLUMS"
                       />
-                      <h1 className="text-darkPurple font-head p-3">PLUMS</h1>
+                      <h1 className="text-darkPurple font-logo p-3">PLUMS</h1>
                     </div>
                     <nav className="flex flex-1 flex-col">
                       <ul role="list" className="flex flex-1 flex-col gap-y-7">
                         <li>
-                          <ul role="list" className="-mx-2 space-y-1 font-body">
+                          <ul role="list" className="-mx-2 space-y-1 font-head">
                             {navigation.map((item) => (
                               <li key={item.name}>
                                 <a
@@ -137,12 +137,12 @@ export default function Home({ children }: { children: React.ReactNode }) {
                           </ul>
                         </li>
                         <li>
-                          <div className="text-m font-bold leading-6 text-darkPurple font-body">
+                          <div className="text-m font-bold leading-6 text-darkPurple font-head">
                             Your teams
                           </div>
                           <ul
                             role="list"
-                            className="-mx-2 mt-2 space-y-1 font-body"
+                            className="-mx-2 mt-2 space-y-1 font-head"
                           >
                             {teams.map((team) => (
                               <li key={team.name}>
@@ -167,7 +167,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                         <li className="mt-auto">
                           <a
                             href="/settings"
-                            className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-blue hover:bg-darkBlue hover:text-white font-body"
+                            className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-blue hover:bg-darkBlue hover:text-white font-head"
                           >
                             <Cog6ToothIcon
                               className="h-6 w-6 shrink-0 text-blue group-hover:text-white"
@@ -195,12 +195,12 @@ export default function Home({ children }: { children: React.ReactNode }) {
                 src="images/logoTransparent.png"
                 alt="PLUMS logo"
               />
-              <h1 className="text-darkPurple font-head p-3">PLUMS</h1>
+              <h1 className="text-darkPurple font-logo p-3">PLUMS</h1>
             </div>
             <nav className="flex flex-1 flex-col">
               <ul role="list" className="flex flex-1 flex-col gap-y-7">
                 <li>
-                  <ul role="list" className="-mx-2 space-y-1 font-body">
+                  <ul role="list" className="-mx-2 space-y-1 font-head">
                     {navigation.map((item) => (
                       <li key={item.name}>
                         <a
@@ -228,7 +228,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                   </ul>
                 </li>
                 <li>
-                  <div className="text-m font-bold leading-6 text-darkPurple font-body">
+                  <div className="text-m font-bold leading-6 text-darkPurple font-head">
                     Your teams
                   </div>
                   <ul role="list" className="-mx-2 mt-2 space-y-1">
@@ -246,7 +246,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                           <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-darkPurple bg-purple text-[0.625rem] font-medium text-white font-head">
                             {team.initial}
                           </span>
-                          <span className="truncate font-body">
+                          <span className="truncate font-head">
                             {team.name}
                           </span>
                         </a>
@@ -257,7 +257,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                 <li className="mt-auto">
                   <a
                     href="/settings"
-                    className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-blue hover:bg-darkBlue hover:text-white font-body"
+                    className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-blue hover:bg-darkBlue hover:text-white font-head"
                   >
                     <Cog6ToothIcon
                       className="h-6 w-6 shrink-0 text-blue group-hover:text-white"
@@ -290,7 +290,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
 
             <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
               <form className="relative flex flex-1" action="#" method="GET">
-                <label htmlFor="search-field" className="sr-only font-body">
+                <label htmlFor="search-field" className="sr-only font-head">
                   Search
                 </label>
                 <MagnifyingGlassIcon
@@ -299,7 +299,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                 />
                 <input
                   id="search-field"
-                  className="block h-full w-full border-0 py-0 pl-8 pr-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm font-body"
+                  className="block h-full w-full border-0 py-0 pl-8 pr-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm font-head"
                   placeholder="Search..."
                   type="search"
                   name="search"
@@ -351,7 +351,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none font-body">
+                    <Menu.Items className="absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none font-head">
                       {userNavigation.map((item) => (
                         <Menu.Item key={item.name}>
                           {({ active }) => (
