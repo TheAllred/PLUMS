@@ -1,5 +1,4 @@
-import Cards from "@/components/card";
-const products = [
+const items = [
   {
     id: 1,
     name: "React cheat sheet",
@@ -38,11 +37,45 @@ const products = [
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
+  {
+    id: 5,
+    name: "Web Development Course",
+    href: "#",
+    price: "",
+    imageSrc: "https://picsum.photos/id/237/200/200",
+    imageAlt: "Web development course cover image",
+  },
+  {
+    id: 6,
+    name: "Wireless Bluetooth Headphones",
+    href: "#",
+    price: "",
+    imageSrc: "https://picsum.photos/id/238/200/200",
+    imageAlt: "Wireless headphones product image",
+  },
+  {
+    id: 7,
+    name: "Gourmet Coffee Beans",
+    href: "#",
+    price: "",
+    imageSrc: "https://picsum.photos/id/239/200/200",
+    imageAlt: "Bag of gourmet coffee beans",
+  },
+  {
+    id: 8,
+    name: "Yoga Mat",
+    href: "#",
+    price: "",
+    imageSrc: "https://picsum.photos/id/247/200/200",
+    imageAlt: "Yoga mat product image",
+  },
+  {
+    id: 9,
+    name: "Smartphone Stand",
+    href: "#",
+    price: "",
+    imageSrc: "https://picsum.photos/id/248/200/200",
+    imageAlt: "Phone stand product image",
+  },
 ];
-export default function Page() {
-  return (
-    <div>
-      <Cards items={products} />
-    </div>
-  );
-}
+export default items;
