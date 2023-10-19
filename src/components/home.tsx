@@ -21,7 +21,7 @@ import {
 
 const navigation = [
   { name: "Dashboard", href: "/", icon: HomeIcon, current: true },
-  { name: "Topics", href: "/cards", icon: FolderIcon, current: false },
+  { name: "Topics", href: "/topics", icon: FolderIcon, current: false },
   { name: "Resources", href: "#", icon: DocumentDuplicateIcon, current: false },
 ];
 const teams = [
@@ -101,7 +101,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                     <div className="flex h-16 shrink-0 items-center">
                       <img
                         className="h-12 w-auto"
-                        src="https://i.ibb.co/WyhyrDN/logo-Transparent.png"
+                        src="images/logoTransparent.png"
                         alt="PLUMS"
                       />
                       <h1 className="text-darkPurple font-head p-3">PLUMS</h1>
@@ -166,7 +166,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                         </li>
                         <li className="mt-auto">
                           <a
-                            href="#"
+                            href="/settings"
                             className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-blue hover:bg-darkBlue hover:text-white font-body"
                           >
                             <Cog6ToothIcon
@@ -192,7 +192,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
             <div className="flex h-16 shrink-0 items-center">
               <img
                 className="h-12 w-auto"
-                src="https://i.ibb.co/WyhyrDN/logo-Transparent.png"
+                src="images/logoTransparent.png"
                 alt="PLUMS logo"
               />
               <h1 className="text-darkPurple font-head p-3">PLUMS</h1>
@@ -256,7 +256,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                 </li>
                 <li className="mt-auto">
                   <a
-                    href="#"
+                    href="/settings"
                     className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-blue hover:bg-darkBlue hover:text-white font-body"
                   >
                     <Cog6ToothIcon

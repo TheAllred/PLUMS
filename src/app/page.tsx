@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
+
 export const metadata = {
   title: "PLUMS",
   description:
@@ -9,11 +11,7 @@ export default function Page() {
   return (
     <>
       <div className="flex place-content-center">
-        <img
-          className="h-32"
-          src="https://imageupload.io/6qkITxruv1dwWU1"
-          alt="PLUMS"
-        />
+        <img src="images/logoTransparent.png" alt="PLUMS" className="h-32" />
         <div>
           <h1 className="font-head text-8xl text-center">PLUMS</h1>
           <h2 className="font-head text-center">
