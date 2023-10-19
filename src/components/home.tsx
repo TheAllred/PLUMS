@@ -40,7 +40,23 @@ function classNames(...classes: string[]) {
 
 export default function Home({ children }: { children: React.ReactNode }) {
   "use client";
+  const [userLoggedIn, setUserLoggedIn] = useState({
+    name: "Kevin",
+    src: "https://ca.slack-edge.com/T4ZKTJUEB-U02T7G4UHGQ-a9e42cf785ce-512",
+  });
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  function toggleUser() {
+    if (userLoggedIn.name === "Kevin") {
+      setUserLoggedIn({
+        name: "Becca",
+        src: "https://byui.instructure.com/images/thumbnails/4077818/y9uZ9ybFmb926CQlmBGdrMNFFYC49bTPbKoYbRR6",
+      });
+    } else
+      setUserLoggedIn({
+        name: "Kevin",
+        src: "https://ca.slack-edge.com/T4ZKTJUEB-U02T7G4UHGQ-a9e42cf785ce-512",
+      });
+  }
   return (
     <>
       <div>
@@ -308,6 +324,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
               <div className="flex items-center gap-x-4 lg:gap-x-6">
                 <button
                   type="button"
+                  onClick={toggleUser}
                   className="-m-2.5 p-2.5 text-gray-400 hover:text-gray-500"
                 >
                   <span className="sr-only">View notifications</span>
@@ -326,7 +343,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                     <span className="sr-only">Open user menu</span>
                     <img
                       className="h-8 w-8 rounded-full bg-gray-50"
-                      src="https://ca.slack-edge.com/T4ZKTJUEB-U02T7G4UHGQ-a9e42cf785ce-512"
+                      src={userLoggedIn.src}
                       alt=""
                     />
                     <span className="hidden lg:flex lg:items-center">
@@ -334,7 +351,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                         className="ml-4 text-sm leading-6 text-gray-900 font-head"
                         aria-hidden="true"
                       >
-                        Kevin Allred
+                        {userLoggedIn.name}
                       </span>
                       <ChevronDownIcon
                         className="ml-2 h-5 w-5 text-gray-400"
