@@ -1,10 +1,10 @@
 export default function Detail(item: any) {
   return (
-    <>
-      <h1>{JSON.stringify(item)}</h1>
-      <section><h1>{item.item.name}</h1>
-      <img src={item.item.src} alt={item.item.alt} />
-      </section>
-    </>
+    <div className="flex flex-col items-center justify-center">
+      <h1 className="text-3xl font-bold my-8">{item.item.name}</h1>
+      <img className="w-1/2 mb-8" src={item.item.imageSrc} alt={item.item.alt} />
+      <p className="text-lg">{item.item.description}</p>
+    </div>
   );
 }
+

@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import Image from "next/image";
-
+import Search from "@/components/Search";
 export const metadata = {
   title: "PLUMS",
   description:
@@ -25,6 +24,8 @@ export default function Page() {
           &#9734; Pinned Topics
         </h2>
       </div>
+      <Search></Search>
+
     </>
   );
 }
