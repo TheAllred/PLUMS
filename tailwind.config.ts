@@ -16,7 +16,8 @@ const config: Config = {
         darkPurple: "#49437E",
         blue: "#46AEE2",
         darkBlue: "#56A8D1",
-        green: "#0A8754",
+        darkGreen: "#0A8754",
+        green: "#0EB672",
       },
       fontFamily: {
         head: ["Quicksand", "sans-serif"],

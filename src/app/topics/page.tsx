@@ -1,3 +1,4 @@
+import AddButton from "@/components/addButton";
 import Cards from "@/components/card";
 
 const products = [
@@ -21,8 +22,7 @@ const products = [
     id: 3,
     name: "Class notes",
     link: "/2",
-    imageSrc:
-      "https://picsum.photos/id/210/200/135",
+    imageSrc: "https://picsum.photos/id/210/200/135",
     imageAlt:
       "Person using a pen to cross a task off a productivity paper card.",
   },
@@ -30,8 +30,7 @@ const products = [
     id: 4,
     name: "Hobby list",
     link: "/3",
-    imageSrc:
-      "https://picsum.photos/id/220/200/135",
+    imageSrc: "https://picsum.photos/id/220/200/135",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
@@ -73,5 +72,12 @@ const products = [
 ];
 
 export default function Page() {
-  return <Cards items={products} />;
+  return (
+    <>
+      <Cards items={products} />
+      <a href="#">
+        <AddButton />
+      </a>
+    </>
+  );
 }

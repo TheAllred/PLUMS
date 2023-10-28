@@ -28,16 +28,21 @@ const userContext = createContext({
 
 const navigation = [
   { name: "Dashboard", href: "/", icon: HomeIcon, current: false },
-  { name: "Topics", href: "/topics", icon: FolderIcon, current: false },
-  { name: "Resources", href: "#", icon: DocumentDuplicateIcon, current: false },
+  { name: "All Topics", href: "/topics", icon: FolderIcon, current: false },
+  // {
+  //   name: "Resources",
+  //   href: "/resources",
+  //   icon: DocumentDuplicateIcon,
+  //   current: false,
+  // },
 ];
-const teams = [
-  { id: 1, name: "Personal", href: "#", initial: "P", current: false },
-  { id: 2, name: "Family", href: "#", initial: "F", current: false },
-  { id: 3, name: "School", href: "#", initial: "S", current: false },
-];
+// const teams = [
+//   { id: 1, name: "Personal", href: "#", initial: "P", current: false },
+//   { id: 2, name: "Family", href: "#", initial: "F", current: false },
+//   { id: 3, name: "School", href: "#", initial: "S", current: false },
+// ];
 const userNavigation = [
-  { name: "Your profile", href: "#" },
+  { name: "Your profile", href: "/profile" },
   { name: "Sign out", href: "#" },
 ];
 
@@ -139,7 +144,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                       />
                       <h1 className="text-darkPurple font-logo p-3">PLUMS</h1>
                     </div>
-                    <nav className="flex flex-1 flex-col">
+                    <nav className="flex flex-1 flex-col fixed">
                       <ul role="list" className="flex flex-1 flex-col gap-y-7">
                         <li>
                           <ul role="list" className="-mx-2 space-y-1 font-head">
@@ -169,7 +174,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                             ))}
                           </ul>
                         </li>
-                        <li>
+                        {/* <li>
                           <div className="text-m font-bold leading-6 text-darkPurple font-head">
                             Your groups
                           </div>
@@ -196,7 +201,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                               </li>
                             ))}
                           </ul>
-                        </li>
+                        </li> */}
                         <li className="mt-auto">
                           <a
                             href="/settings"
@@ -260,7 +265,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                     ))}
                   </ul>
                 </li>
-                <li>
+                {/* <li>
                   <div className="text-m font-bold leading-6 text-darkPurple font-head">
                     Your Groups
                   </div>
@@ -286,7 +291,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                       </li>
                     ))}
                   </ul>
-                </li>
+                </li> */}
                 <li className="mt-auto">
                   <a
                     href="/settings"

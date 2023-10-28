@@ -12,20 +12,21 @@ export default function Page() {
       <div className="flex place-content-center">
         <img src="images/logoTransparent.png" alt="PLUMS" className="h-32" />
         <div>
-          <h1 className="font-logo text-8xl text-center">PLUMS</h1>
-          <h2 className="font-logo text-center">
+          <h1 className="font-logo text-8xl text-center text-darkPurple">
+            PLUMS
+          </h1>
+          <h2 className="font-logo text-center text-darkPurple">
             Nurturing Knowledge, Growing Success!
           </h2>
         </div>
       </div>
 
-      <div>
-        <h2 className="font-head text-4xl pt-10 pl-10">
+      <div className="bg-background w-full rounded-lg mt-6">
+        <h2 className="font-head text-4xl py-4 pl-10 font-bold">
           &#9734; Pinned Topics
         </h2>
       </div>
-      <Search></Search>
-
+      {/* <Search></Search> */}
     </>
   );
 }
