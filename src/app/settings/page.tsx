@@ -5,7 +5,9 @@ export default function Settings() {
   return (
     <>
       <div>
-        <h2 className="font-head">Settings</h2>
+        <h2 className="font-head text-black dark:text-white text-4xl">
+          Settings
+        </h2>
         <SettingsForm />
       </div>
     </>

@@ -1,17 +1,18 @@
 "use client";
 import React, { useState } from "react";
+import Switcher from "./darkSwitcher";
 
 function SettingsForm() {
-  const [theme, setTheme] = useState("light");
+  // const [theme, setTheme] = useState("light");
   const [notifications, setNotifications] = useState(true);
   const [language, setLanguage] = useState("en");
   const [fontSize, setFontSize] = useState("medium");
 
-  const handleThemeChange = (e: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
-    setTheme(e.target.value);
-  };
+  // const handleThemeChange = (e: {
+  //   target: { value: React.SetStateAction<string> };
+  // }) => {
+  //   setTheme(e.target.value);
+  // };
 
   const handleNotificationsChange = () => {
     setNotifications(!notifications);
@@ -29,19 +30,20 @@ function SettingsForm() {
     setFontSize(e.target.value);
   };
 
-  console.log("theme:", theme);
-  console.log("notifications:", notifications);
-  console.log("language:", language);
-  console.log("fontSize:", fontSize);
+  // console.log("theme:", theme);
+  // console.log("notifications:", notifications);
+  // console.log("language:", language);
+  // console.log("fontSize:", fontSize);
 
   return (
-    <div className="font-body">
-      <h3>Theme</h3>
-      <select value={theme} onChange={handleThemeChange}>
+    <div className="font-body bg-white dark:bg-black">
+      <h3 className="text-black dark:text-white">Theme</h3>
+      <Switcher />
+      {/* <select value={theme} onChange={handleThemeChange}>
         <option value="light">Light</option>
         <option value="dark">Dark</option>
-      </select>
-      <h3>Notifications</h3>
+      </select> */}
+      {/* <h3>Notifications</h3>
       <input
         type="checkbox"
         checked={notifications}
@@ -59,7 +61,7 @@ function SettingsForm() {
         <option value="small">Small</option>
         <option value="medium">Medium</option>
         <option value="large">Large</option>
-      </select>
+      </select> */}
     </div>
   );
 }
