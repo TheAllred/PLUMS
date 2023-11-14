@@ -1,23 +1,9 @@
-// import { useState, useEffect } from "react";
+"use client";
+import { useState, useEffect } from "react";
 
-// export default function useDarkSide() {
-//   const [theme, setTheme] = useState(localStorage.theme);
-//   const colorTheme = theme === "dark" ? "light" : "dark";
-
-//   useEffect(() => {
-//     const root = window.document.documentElement;
-//     root.classList.remove(colorTheme);
-//     root.classList.add(theme);
-//     localStorage.setItem("theme", theme);
-//   }, [theme, colorTheme]);
-
-//   return [colorTheme, setTheme];
-// }
-
-import { useEffect, useState } from "react";
-
-export function useDarkMode() {
-  const [theme, setTheme] = useState("light");
+export default function useDarkSide() {
+  const [theme, setTheme] = useState(localStorage.getItem("theme"));
+  const colorTheme = theme === "dark" ? "light" : "dark";
 
   useEffect(() => {
     const localTheme = localStorage.getItem("theme");

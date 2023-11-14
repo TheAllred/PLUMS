@@ -17,7 +17,6 @@ export default function Page() {
     fetchTodos();
   }, [supabase]);
 
-  console.log(data);
   return (
     <div>
       <Cards items={data} />
