@@ -26,6 +26,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { Auth0Provider } from "@auth0/auth0-react";
 import LoginButton from "./loginButton";
+import LogoutButton from "./logoutButton";
 
 const userContext = createContext({
   name: "Kevin",
@@ -228,6 +229,10 @@ export default function Home({ children }: { children: React.ReactNode }) {
                             <li>
                               <LoginButton />
                             </li>
+                            {/* LOGOUT BUTTON */}
+                            <li>
+                              <LogoutButton />
+                            </li>
                             <li className="mt-auto">
                               <a
                                 href="/settings"
@@ -321,6 +326,10 @@ export default function Home({ children }: { children: React.ReactNode }) {
                     {/* LOGIN BUTTON */}
                     <li>
                       <LoginButton />
+                    </li>
+                    {/* LOGOUT BUTTON */}
+                    <li>
+                      <LogoutButton />
                     </li>
                     <li className="mt-auto">
                       <a

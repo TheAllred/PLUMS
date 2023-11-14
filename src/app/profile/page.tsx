@@ -1,10 +1,12 @@
+import UserProfile from "@/components/profile";
 import React, { useState } from "react";
 
 export default function Profile() {
   return (
     <>
-      <img src="" alt="" />
-      <h1 className="font-head">Hello NAME!</h1>
+      {/* <img src="" alt="" />
+      <h1 className="font-head">Hello NAME!</h1> */}
+      <UserProfile />
     </>
   );
 }

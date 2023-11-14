@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { DarkSwitcher } from "./darkSwitcher";
+import Switcher from "./darkSwitcher";
 
 function SettingsForm() {
   // const [theme, setTheme] = useState("light");
@@ -38,7 +38,7 @@ function SettingsForm() {
   return (
     <div className="font-body bg-white dark:bg-black">
       <h3 className="text-black dark:text-white">Theme</h3>
-      <DarkSwitcher />
+      <Switcher />
       {/* <select value={theme} onChange={handleThemeChange}>
         <option value="light">Light</option>
         <option value="dark">Dark</option>
