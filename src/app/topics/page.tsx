@@ -1,5 +1,7 @@
+import { useState } from "react";
 import AddButton from "@/components/addButton";
 import Cards from "@/components/card";
+import ModalForm from "@/components/modalForm";
 
 const products = [
   {
@@ -75,9 +77,8 @@ export default function Page() {
   return (
     <>
       <Cards items={products} />
-      <a href="#">
-        <AddButton />
-      </a>
+      <AddButton />
+      <ModalForm />
     </>
   );
 }
