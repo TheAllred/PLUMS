@@ -12,6 +12,7 @@ const config: Config = {
       colors: {
         background: "#F8F4F9",
         red: "#FB3640",
+        darkRed: "#EC0510",
         violet: "#A36BAD",
         purple: "#6A62AC",
         darkPurple: "#49437E",
