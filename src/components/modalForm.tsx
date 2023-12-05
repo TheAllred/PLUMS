@@ -18,7 +18,7 @@ export default function ModalForm() {
     const newNewItem: NewItem = {
       title: event.target.title.value,
       description: event.target.description.value,
-      attachment: event.target.reference.value,
+      attachment: event.target.attachment.value,
       attachmentalt: null,
       indent: null,
       sortorder: null,
@@ -58,6 +58,18 @@ export default function ModalForm() {
               rows={10}
               className="border mb-5"
             ></textarea>
+            <br />
+
+            <label htmlFor="attachment" className="font-head font-bold">
+              COVER IMAGE:
+            </label>
+            <br />
+            <input
+              type="url"
+              name="attachment"
+              id="attachment"
+              className="border mb-5"
+            />
             <br />
 
             <label htmlFor="reference" className="font-head font-bold">
@@ -121,7 +133,12 @@ export default function ModalForm() {
               (Separate tags with commas)
             </p>
             <br />
-            <button type="submit">Create Note</button>
+            <button
+              type="submit"
+              className="font-head bg-green hover:bg-darkGreen text-white p-4"
+            >
+              Create Note
+            </button>
           </form>
         </div>
       </div>
