@@ -13,7 +13,6 @@ export type NewItem = {
 
 export default function ModalForm() {
   function handleSubmit(event) {
-    console.log("Added todo###############################################");
     event.preventDefault();
     const newNewItem: NewItem = {
       title: event.target.title.value,
