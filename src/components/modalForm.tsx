@@ -48,7 +48,7 @@ export default function ModalForm() {
             <br />
 
             <label htmlFor="description" className="font-head font-bold">
-              DESCRIPTION:
+              DESCRIPTION OF TOPIC:
             </label>
             <br />
             <textarea
@@ -82,6 +82,19 @@ export default function ModalForm() {
               id="reference"
               className="border mb-5"
             />
+            <br />
+
+            <label htmlFor="notes" className="font-head font-bold">
+              NOTES FOR REFERENCE:
+            </label>
+            <br />
+            <textarea
+              name="notes"
+              id="notes"
+              cols={30}
+              rows={10}
+              className="border mb-5"
+            ></textarea>
             <br />
 
             {/* <p className="font-head font-bold">FILE UPLOAD:</p>
