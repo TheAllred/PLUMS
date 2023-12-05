@@ -1,8 +1,6 @@
 "use client";
-import React, { useState } from "react";
-import { experimental_useFormState as useFormState } from "react-dom";
-import { useFormStatus } from "react-dom";
 import { createNote } from "@/app/actions";
+import { useState } from "react";
 
 export type NewItem = {
   title: string;
@@ -16,27 +14,12 @@ export type NewItem = {
 
 const initialState = {
   title: "",
-  reference: "",
+  attachment: "",
   description: "",
   tags: "",
 };
 
-function SubmitButton() {
-  const { pending } = useFormStatus();
-
-  return (
-    <button
-      type="submit"
-      aria-disabled={pending}
-      className="bg-violet text-white p-2 rounded"
-    >
-      Create New Note
-    </button>
-  );
-}
-
 export default function ModalForm() {
-  const [state, formAction] = useFormState(createNote, initialState);
 
   return (
     <>
@@ -45,7 +28,7 @@ export default function ModalForm() {
           <h1 className="font-head bg-violet text-white text-center text-3xl p-5 rounded">
             Create New Item
           </h1>
-          <form action={formAction} className="bg-background p-5 rounded">
+          <form className="bg-background p-5 rounded">
             <label htmlFor="title" className="font-head font-bold">
               TITLE:
             </label>
@@ -83,7 +66,7 @@ export default function ModalForm() {
             />
             <br />
 
-            <p className="font-head font-bold">FILE UPLOAD:</p>
+            {/* <p className="font-head font-bold">FILE UPLOAD:</p>
             <div className="flex items-center justify-center w-full">
               <label
                 htmlFor="dropzone-file"
@@ -121,19 +104,22 @@ export default function ModalForm() {
                   accept="image/*, .pdf,  video/*, .doc"
                 />
               </label>
-            </div>
+            </div> */}
 
             <label htmlFor="tags" className="font-head font-bold">
               TAGS:
             </label>
             <br />
-            <input type="text" name="tags" id="tags" className="border" />
+            <input
+              type="text"
+              name="tags"
+              id="tags"
+              className="border"
+            />
             <p className="font-body italic text-xs">
               (Separate tags with commas)
             </p>
             <br />
-
-            <SubmitButton></SubmitButton>
           </form>
         </div>
       </div>
