@@ -76,6 +76,9 @@ export default function ModalForm() {
               REFERENCE LINK:
             </label>
             <br />
+            <p className="font-body italic text-xs">
+              (Website, Image, Video, etc.)
+            </p>
             <input
               type="url"
               name="reference"

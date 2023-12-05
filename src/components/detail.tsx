@@ -25,6 +25,7 @@ export default function Detail({ item }: { item: Item }) {
       </h1>
       <p className="text-lg ">{item.description}</p>
       {/* add button to reference link */}
+      {/* add notes for reference */}
     </div>
   );
 }
