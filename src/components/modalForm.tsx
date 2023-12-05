@@ -1,4 +1,43 @@
+"use client";
+import React, { useState } from "react";
+import { experimental_useFormState as useFormState } from "react-dom";
+import { useFormStatus } from "react-dom";
+import { createNote } from "@/app/actions";
+
+export type NewItem = {
+  title: string;
+  description: string;
+  attachment: string | null;
+  attachmentalt: string | null;
+  indent: number | null;
+  sortorder: number | null;
+  authorid: number;
+};
+
+const initialState = {
+  title: "",
+  reference: "",
+  description: "",
+  tags: "",
+};
+
+function SubmitButton() {
+  const { pending } = useFormStatus();
+
+  return (
+    <button
+      type="submit"
+      aria-disabled={pending}
+      className="bg-violet text-white p-2 rounded"
+    >
+      Create New Note
+    </button>
+  );
+}
+
 export default function ModalForm() {
+  const [state, formAction] = useFormState(createNote, initialState);
+
   return (
     <>
       <div className="inset-0 flex justify-center items-start">
@@ -6,16 +45,32 @@ export default function ModalForm() {
           <h1 className="font-head bg-violet text-white text-center text-3xl p-5 rounded">
             Create New Item
           </h1>
-          <form action="" method="post" className="bg-background p-5 rounded">
-            {/* TITLE */}
+          <form action={formAction} className="bg-background p-5 rounded">
             <label htmlFor="title" className="font-head font-bold">
               TITLE:
             </label>
             <br />
-            <input type="text" id="title" className="border mb-5" />
+            <input
+              type="text"
+              id="title"
+              name="title"
+              className="border mb-5"
+            />
             <br />
 
-            {/* LINK */}
+            <label htmlFor="description" className="font-head font-bold">
+              DESCRIPTION:
+            </label>
+            <br />
+            <textarea
+              name="description"
+              id="description"
+              cols={30}
+              rows={10}
+              className="border mb-5"
+            ></textarea>
+            <br />
+
             <label htmlFor="reference" className="font-head font-bold">
               REFERENCE LINK:
             </label>
@@ -28,7 +83,6 @@ export default function ModalForm() {
             />
             <br />
 
-            {/* IMAGE UPLOAD */}
             <p className="font-head font-bold">FILE UPLOAD:</p>
             <div className="flex items-center justify-center w-full">
               <label
@@ -45,9 +99,9 @@ export default function ModalForm() {
                   >
                     <path
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
                     />
                   </svg>
@@ -69,36 +123,17 @@ export default function ModalForm() {
               </label>
             </div>
 
-            {/* DESCRIPTION */}
-            <label htmlFor="description" className="font-head font-bold">
-              DESCRIPTION:
-            </label>
-            <br />
-            <textarea
-              name="description"
-              id="description"
-              cols={30}
-              rows={10}
-              className="border mb-5"
-            ></textarea>
-            <br />
-
-            {/* TAGS */}
             <label htmlFor="tags" className="font-head font-bold">
               TAGS:
             </label>
             <br />
-            <input
-              type="text"
-              name="tags"
-              id="tags"
-              multiple
-              className="border"
-            />
+            <input type="text" name="tags" id="tags" className="border" />
             <p className="font-body italic text-xs">
-              (Seperate tags with commas)
+              (Separate tags with commas)
             </p>
             <br />
+
+            <SubmitButton></SubmitButton>
           </form>
         </div>
       </div>
