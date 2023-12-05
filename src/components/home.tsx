@@ -233,6 +233,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                             <li>
                               <LogoutButton />
                             </li>
+                            {/* light/dark */}
                             <li className="mt-auto">
                               <a
                                 href="/settings"
@@ -331,6 +332,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                     <li>
                       <LogoutButton />
                     </li>
+                    {/* light/dark */}
                     <li className="mt-auto">
                       <a
                         href="/settings"
