@@ -1,60 +1,48 @@
-
-
+"use server";
 import { revalidatePath } from "next/cache";
-import { sql } from "@vercel/postgres";
-
+import pool from "@/db/vercel";
+import { NewItem } from "@/components/modalForm";
 
 // CREATE TABLE todos (
 //   id SERIAL PRIMARY KEY,
 //   text TEXT NOT NULL
 // );
 
-export async function createNote(prevState: any, formData: FormData) {
-  const schema = z.object({
-    todo: z.string().min(1),
-  });
-  const parse = schema.safeParse({
-    todo: formData.get("todo"),
-  });
-
-  if (!parse.success) {
-    return { message: "Failed to create todo" };
-  }
-
-  const data = parse.data;
-
+export async function createNote(NewItem: NewItem) {
+  console.log("createNote", NewItem);
   try {
-    await sql`
-    INSERT INTO todos (text)
-    VALUES (${data.todo})
+    await pool.sql<NewItem>`
+    INSERT INTO notes (title, description, attachment,attachmentalt, authorid)
+    VALUES (${NewItem.title}, ${NewItem.description}, ${NewItem.attachment}, ${NewItem.attachmentalt}, ${NewItem.authorid})
   `;
 
     revalidatePath("/");
-    return { message: `Added todo ${data.todo}` };
+    console.log("Added todo");
   } catch (e) {
-    return { message: "Failed to create todo" };
+    console.log(e);
+    console.log("Failed to add todo");
   }
 }
 
-export async function deleteTodo(prevState: any, formData: FormData) {
-  const schema = z.object({
-    id: z.string().min(1),
-    todo: z.string().min(1),
-  });
-  const data = schema.parse({
-    id: formData.get("id"),
-    todo: formData.get("todo"),
-  });
+// export async function deleteTodo(prevState: any, formData: FormData) {
+//   const schema = z.object({
+//     id: z.string().min(1),
+//     todo: z.string().min(1),
+//   });
+//   const data = schema.parse({
+//     id: formData.get("id"),
+//     todo: formData.get("todo"),
+//   });
 
-  try {
-    await sql`
-      DELETE FROM todos
-      WHERE id = ${data.id};
-    `;
+//   try {
+//     await sql`
+//       DELETE FROM todos
+//       WHERE id = ${data.id};
+//     `;
 
-    revalidatePath("/");
-    return { message: `Deleted todo ${data.todo}` };
-  } catch (e) {
-    return { message: "Failed to delete todo" };
-  }
-}
+//     revalidatePath("/");
+//     return { message: `Deleted todo ${data.todo}` };
+//   } catch (e) {
+//     return { message: "Failed to delete todo" };
+//   }
+// }

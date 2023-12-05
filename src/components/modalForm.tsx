@@ -1,6 +1,5 @@
 "use client";
 import { createNote } from "@/app/actions";
-import { useState } from "react";
 
 export type NewItem = {
   title: string;
@@ -12,14 +11,21 @@ export type NewItem = {
   authorid: number;
 };
 
-const initialState = {
-  title: "",
-  attachment: "",
-  description: "",
-  tags: "",
-};
-
 export default function ModalForm() {
+  function handleSubmit(event) {
+    console.log("Added todo###############################################");
+    event.preventDefault();
+    const newNewItem: NewItem = {
+      title: event.target.title.value,
+      description: event.target.description.value,
+      attachment: event.target.reference.value,
+      attachmentalt: null,
+      indent: null,
+      sortorder: null,
+      authorid: 1,
+    };
+    createNote(newNewItem);
+  }
 
   return (
     <>
@@ -28,7 +34,7 @@ export default function ModalForm() {
           <h1 className="font-head bg-violet text-white text-center text-3xl p-5 rounded">
             Create New Item
           </h1>
-          <form className="bg-background p-5 rounded">
+          <form className="bg-background p-5 rounded" onSubmit={handleSubmit}>
             <label htmlFor="title" className="font-head font-bold">
               TITLE:
             </label>
@@ -110,16 +116,12 @@ export default function ModalForm() {
               TAGS:
             </label>
             <br />
-            <input
-              type="text"
-              name="tags"
-              id="tags"
-              className="border"
-            />
+            <input type="text" name="tags" id="tags" className="border" />
             <p className="font-body italic text-xs">
               (Separate tags with commas)
             </p>
             <br />
+            <button type="submit">Create Note</button>
           </form>
         </div>
       </div>
