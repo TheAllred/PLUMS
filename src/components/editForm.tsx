@@ -42,7 +42,7 @@ export default function EditForm({ item }: { item: Item }) {
       description: description,
       attachment: attachment,
     });
-  }
+  };
 
   return (
     <>
@@ -51,7 +51,10 @@ export default function EditForm({ item }: { item: Item }) {
           <h1 className="font-head bg-violet text-white text-center text-3xl p-5 rounded">
             Edit Note
           </h1>
-          <form className="bg-background p-5 rounded" onSubmit={updateNoteHandler}>
+          <form
+            className="bg-background p-5 rounded"
+            onSubmit={updateNoteHandler}
+          >
             <label htmlFor="title" className="font-head font-bold">
               TITLE:
             </label>
@@ -116,18 +119,6 @@ export default function EditForm({ item }: { item: Item }) {
             />
             <br />
 
-            <label htmlFor="notes" className="font-head font-bold">
-              NOTES FOR REFERENCE:
-            </label>
-            <br />
-            <textarea
-              name="notes"
-              id="notes"
-              cols={30}
-              rows={10}
-              className="border mb-5"
-            ></textarea>
-            <br />
             <label htmlFor="tags" className="font-head font-bold">
               TAGS:
             </label>
@@ -139,7 +130,7 @@ export default function EditForm({ item }: { item: Item }) {
             <br />
             <button
               type="submit"
-              className="font-head bg-green hover:bg-darkGreen text-white p-4"
+              className="font-head bg-green hover:bg-darkGreen text-white p-4 rounded-3xl font-bold"
             >
               Edit Note
             </button>

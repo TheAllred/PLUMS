@@ -8,12 +8,12 @@ export default async function TagsPage() {
   };
   return (
     <>
-      <h2 className="large">All Tags:</h2>
+      <h2 className="font-head text-3xl mb-6">All Tags:</h2>
       <ul>
         {rows.map((tag, index) => (
           <li
             key={index}
-            className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+            className="inline-block bg-background rounded-full px-3 py-1 text-m font-semibold text-darkPurple mr-2 font-head hover:bg-darkPurple hover:text-white cursor-pointer"
           >
             {tag.tag_name}
           </li>

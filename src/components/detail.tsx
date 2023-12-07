@@ -5,6 +5,7 @@ import { PencilSquareIcon } from "@heroicons/react/24/outline";
 import { BookmarkIcon } from "@heroicons/react/24/outline";
 import { pinNote } from "@/app/actions";
 import Tags from "@/components/tags";
+import { title } from "process";
 export type Item = {
   id: number;
   title: string;
@@ -12,6 +13,7 @@ export type Item = {
   description: string;
   attachment: string | null;
   attachmentalt: string | null;
+  reference: string | null;
   indent: number;
   sortorder: number;
   authorid: number;
@@ -45,7 +47,8 @@ export default function Detail({ item }: { item: Item }) {
           {item.title}
           {item.pinned && " ⭐︎"}
         </h1>
-        <p className="text-lg ">{item.description}</p>
+        <p className="text-lg font-body">{item.description}</p>
+        <a href={item.reference}>Reference</a>
         <Tags id={item.id}></Tags>
       </div>
       <DeleteButton></DeleteButton>

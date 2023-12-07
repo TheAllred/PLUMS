@@ -22,8 +22,16 @@ export default function TagInputs() {
           id="tag_name"
           value={tagName}
           onChange={handleInputChange}
+          className="border mt-6 font-body focus:border-darkpurple"
+          required
         />
-        <button type="submit">Create Tag</button>
+        <br />
+        <button
+          type="submit"
+          className="font-head bg-green hover:bg-darkGreen text-white p-4 rounded-3xl mt-3 font-semibold"
+        >
+          Create Tag
+        </button>
       </form>
     </>
   );

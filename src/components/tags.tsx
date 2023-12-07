@@ -5,12 +5,12 @@ export default async function Tags({ id }) {
     await pool.sql<Item>`SELECT tag_name FROM tags where tag_id = ${id};`;
   return (
     <>
-      <h2 className="large">Tags:</h2>
+      <h2 className="text-xl font-head mt-8">Tags:</h2>
       <ul>
         {rows.map((tag, index) => (
           <li
             key={index}
-            className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+            className="inline-block bg-background rounded-full px-3 py-1 text-m font-semibold text-darkPurple mr-2 font-head hover:bg-darkPurple hover:text-white mt-3"
           >
             {tag.tag_name}
           </li>

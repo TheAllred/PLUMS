@@ -31,7 +31,7 @@ export default function ModalForm() {
       <div className="inset-0 flex justify-center items-start">
         <div className="w-[600px] flex flex-col">
           <h1 className="font-head bg-violet text-white text-center text-3xl p-5 rounded">
-            Create New Item
+            Create New Note
           </h1>
           <form className="bg-background p-5 rounded" onSubmit={handleSubmit}>
             <label htmlFor="title" className="font-head font-bold">
@@ -42,7 +42,7 @@ export default function ModalForm() {
               type="text"
               id="title"
               name="title"
-              className="border mb-5"
+              className="border mb-5 font-body"
             />
             <br />
 
@@ -55,19 +55,19 @@ export default function ModalForm() {
               id="description"
               cols={30}
               rows={10}
-              className="border mb-5"
+              className="border mb-5 font-body"
             ></textarea>
             <br />
 
             <label htmlFor="attachment" className="font-head font-bold">
-              COVER IMAGE:
+              COVER IMAGE URL:
             </label>
             <br />
             <input
               type="url"
               name="attachment"
               id="attachment"
-              className="border mb-5"
+              className="border mb-5 font-body"
             />
             <br />
 
@@ -82,21 +82,8 @@ export default function ModalForm() {
               type="url"
               name="reference"
               id="reference"
-              className="border mb-5"
+              className="border mb-5 font-body"
             />
-            <br />
-
-            <label htmlFor="notes" className="font-head font-bold">
-              NOTES FOR REFERENCE:
-            </label>
-            <br />
-            <textarea
-              name="notes"
-              id="notes"
-              cols={30}
-              rows={10}
-              className="border mb-5"
-            ></textarea>
             <br />
 
             {/* <p className="font-head font-bold">FILE UPLOAD:</p>
@@ -143,14 +130,19 @@ export default function ModalForm() {
               TAGS:
             </label>
             <br />
-            <input type="text" name="tags" id="tags" className="border" />
+            <input
+              type="text"
+              name="tags"
+              id="tags"
+              className="border font-body"
+            />
             <p className="font-body italic text-xs">
               (Separate tags with commas)
             </p>
             <br />
             <button
               type="submit"
-              className="font-head bg-green hover:bg-darkGreen text-white p-4"
+              className="font-head bg-green hover:bg-darkGreen text-white p-4 rounded-3xl font-bold"
             >
               Create Note
             </button>
