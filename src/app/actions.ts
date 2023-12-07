@@ -75,3 +75,33 @@ export async function pinNote(id: number, pinnedState: boolean) {
   revalidatePath("/", "layout");
   redirect("/topics");
 }
+
+export async function createTag(tagName: string) {
+  try {
+    await pool.sql`
+    INSERT INTO tags (tag_name) VALUES (${tagName})
+  `;
+
+    console.log("Added tag");
+  } catch (e) {
+    console.log(e);
+    console.log("Failed to add tag");
+  }
+  revalidatePath("/", "layout");
+  redirect("/tags");
+}
+
+export async function deleteTag(tag_id: number) {
+  try {
+    await pool.sql`
+    DELETE FROM tags where tag_id =${tag_id} RETURNING tag_name;
+  `;
+
+    console.log("Deleted tag");
+  } catch (e) {
+    console.log(e);
+    console.log("Failed to delete tag");
+  }
+  revalidatePath("/", "layout");
+  redirect("/tags");
+}

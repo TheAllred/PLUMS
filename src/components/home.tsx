@@ -13,6 +13,8 @@ import {
   HomeIcon,
   UsersIcon,
   XMarkIcon,
+  TagIcon
+  
 } from "@heroicons/react/24/outline";
 import {
   ChevronDownIcon,
@@ -36,6 +38,7 @@ const userContext = createContext({
 const navigation = [
   { name: "Dashboard", href: "/", icon: HomeIcon, current: false },
   { name: "All Topics", href: "/topics", icon: FolderIcon, current: false },
+  { name: "All Tags", href: "/tags", icon: TagIcon, current: false },
   // {
   //   name: "Resources",
   //   href: "/resources",
