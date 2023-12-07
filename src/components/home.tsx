@@ -30,10 +30,6 @@ import { Auth0Provider } from "@auth0/auth0-react";
 import LoginButton from "./loginButton";
 import LogoutButton from "./logoutButton";
 
-const userContext = createContext({
-  name: "Kevin",
-  src: "https://ca.slack-edge.com/T4ZKTJUEB-U02T7G4UHGQ-a9e42cf785ce-512",
-});
 
 const navigation = [
   { name: "Dashboard", href: "/", icon: HomeIcon, current: false },

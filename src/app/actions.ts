@@ -105,3 +105,4 @@ export async function deleteTag(tag_id: number) {
   revalidatePath("/", "layout");
   redirect("/tags");
 }
+
