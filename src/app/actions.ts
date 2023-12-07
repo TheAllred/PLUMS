@@ -4,11 +4,7 @@ import { revalidatePath } from "next/cache";
 import pool from "@/db/vercel";
 import { NewItem } from "@/components/modalForm";
 import { Item } from "@/components/notes";
-
-// CREATE TABLE todos (
-//   id SERIAL PRIMARY KEY,
-//   text TEXT NOT NULL
-// );
+import { UpdatedItem } from "@/components/updateForm";
 
 export async function createNote(NewItem: NewItem) {
   console.log("createNote", NewItem);
@@ -23,7 +19,27 @@ export async function createNote(NewItem: NewItem) {
     console.log(e);
     console.log("Failed to add todo");
   }
-  revalidatePath("/topics");
+  revalidatePath("/", "layout");
+  redirect("/topics");
+}
+export async function updateNote(UpdatedItem: UpdatedItem) {
+  console.log("updateNote", UpdatedItem);
+  try {
+    await pool.sql<UpdatedItem>`
+    UPDATE notes
+    SET title = ${UpdatedItem.title},
+    description = ${UpdatedItem.description},
+    attachment = ${UpdatedItem.attachment},
+    attachmentalt = ${UpdatedItem.attachmentalt},
+    authorid = ${UpdatedItem.authorid}
+    WHERE id = ${UpdatedItem.id};
+  `;
+    console.log("#####Updated note####");
+  } catch (e) {
+    console.log(e);
+    console.log("Failed to update note");
+  }
+  revalidatePath("/", "layout");
   redirect("/topics");
 }
 export async function deleteNote(id: number) {
@@ -38,29 +54,24 @@ export async function deleteNote(id: number) {
     console.log(e);
     console.log("Failed to delete note");
   }
-  revalidatePath("/topics");
+  revalidatePath("/", "layout");
   redirect(`/topics`);
 }
 
-// export async function deleteTodo(prevState: any, formData: FormData) {
-//   const schema = z.object({
-//     id: z.string().min(1),
-//     todo: z.string().min(1),
-//   });
-//   const data = schema.parse({
-//     id: formData.get("id"),
-//     todo: formData.get("todo"),
-//   });
+export async function pinNote(id: number, pinnedState: boolean) {
+  const setPinned = pinnedState ? false : true;
 
-//   try {
-//     await sql`
-//       DELETE FROM todos
-//       WHERE id = ${data.id};
-//     `;
-
-//     revalidatePath("/");
-//     return { message: `Deleted todo ${data.todo}` };
-//   } catch (e) {
-//     return { message: "Failed to delete todo" };
-//   }
-// }
+  try {
+    await pool.sql<UpdatedItem>`
+    UPDATE notes
+    SET pinned = ${setPinned}
+    WHERE id = ${id};
+  `;
+    console.log("#####Toggled pinned note####");
+  } catch (e) {
+    console.log(e);
+    console.log("Failed to pin note");
+  }
+  revalidatePath("/", "layout");
+  redirect("/topics");
+}

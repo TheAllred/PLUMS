@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import PinnedNotes from "@/components/PinnedNotes";
 import Search from "@/components/Search";
 export const metadata = {
   title: "PLUMS",
@@ -25,8 +26,8 @@ export default function Page() {
         <h2 className="font-head text-4xl py-4 pl-10 font-bold">
           &#9734; Pinned Topics
         </h2>
+      <PinnedNotes></PinnedNotes>
       </div>
-      {/* <Search></Search> */}
     </>
   );
 }

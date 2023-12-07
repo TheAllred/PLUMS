@@ -18,11 +18,13 @@ export default function Cards({ items }: { items: Item[] }) {
             className="group bg-violet rounded-lg hover:bg-violet/75 shadow-xl"
           >
             <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-              <img
-                src={item.attachment}
-                alt={item.attachment_alt}
-                className="h-full w-full object-cover object-center group-hover:opacity-75"
-              />
+              {item.attachment && (
+                <img
+                  src={item.attachment}
+                  alt={item.attachment_alt}
+                  className="h-full w-full object-cover object-center group-hover:opacity-75"
+                />
+              )}
             </div>
             <h3 className="mt-4 text-lg text-white font-head font-bold text-center capitalize p-1">
               {item.title}
