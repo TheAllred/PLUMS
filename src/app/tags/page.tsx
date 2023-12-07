@@ -2,7 +2,7 @@ import TagInput from "@/components/tagInput";
 import pool from "@/db/vercel";
 import { deleteTag } from "../actions";
 export default async function TagsPage() {
-  const { rows } = await pool.sql`SELECT tag_name FROM tags;`;
+  const { rows } = await pool.sql`SELECT tag_name, tag_id FROM tags;`;
   const handleDelete = (id: number) => {
     deleteTag(id);
   };
@@ -15,7 +15,7 @@ export default async function TagsPage() {
             key={index}
             className="inline-block bg-background rounded-full px-3 py-1 text-m font-semibold text-darkPurple mr-2 font-head hover:bg-darkPurple hover:text-white cursor-pointer"
           >
-            {tag.tag_name}
+            <a href={`/tags/${tag.tag_id}`}>{tag.tag_name}</a>
           </li>
         ))}
       </ul>
