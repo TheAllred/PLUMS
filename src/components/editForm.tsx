@@ -1,18 +1,7 @@
 "use client";
 import { useState } from "react";
 import { updateNote } from "@/app/actions";
-import { Item } from "./detail";
-export type UpdatedItem = {
-  id: number;
-  title: string;
-  description: string | null;
-  attachment: string | null;
-  attachmentalt: string | null;
-  indent: number | null;
-  sortorder: number | null;
-  authorid: number;
-};
-
+import { Item } from "@/types/types";
 /* eslint-disable @next/next/no-img-element */
 export default function EditForm({ item }: { item: Item }) {
   const [title, setTitle] = useState(item.title);

@@ -2,9 +2,9 @@
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import pool from "@/db/vercel";
-import { NewItem } from "@/components/modalForm";
-import { Item } from "@/components/notes";
-import { UpdatedItem } from "@/components/updateForm";
+import { NewItem } from "@/types/types";
+import { Item } from "@/types/types";
+import { UpdatedItem } from "@/types/types";
 
 export async function createNote(newItem: NewItem) {
   console.log("createNote", newItem);
@@ -21,8 +21,8 @@ export async function createNote(newItem: NewItem) {
 }
 export async function updateNote(updatedItem: UpdatedItem) {
   console.log("updateNote", updatedItem);
- 
-    await pool.sql<UpdatedItem>`
+
+  await pool.sql<UpdatedItem>`
     UPDATE notes
     SET title = ${updatedItem.title},
     description = ${updatedItem.description},
@@ -52,7 +52,7 @@ export async function deleteNote(id: number) {
 
 export async function pinNote(id: number, pinnedState: boolean) {
   const setPinned = pinnedState ? false : true;
-  
+
   await pool.sql`
     UPDATE notes
     SET pinned = ${setPinned}

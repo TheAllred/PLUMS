@@ -1,5 +1,5 @@
 import pool from "@/db/vercel";
-import type { Item } from "@/components/detail";
+import type { Item } from "@/components/Item";
 import EditForm from "@/components/editForm";
 
 export default async function Page({ params }: { params: { slug: number } }) {

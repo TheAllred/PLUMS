@@ -1,7 +1,7 @@
 import AddButton from "@/components/addButton";
 import Detail from "@/components/detail";
 import pool from "@/db/vercel";
-import type { Item } from "@/components/detail";
+import type { Item } from "@/components/Item";
 import { DeleteButton, PinNoteButton } from "@/components/PinNoteButton";
 
 export default async function Page({ params }: { params: { slug: number } }) {

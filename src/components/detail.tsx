@@ -3,19 +3,7 @@ import { PencilSquareIcon } from "@heroicons/react/24/outline";
 import { BackwardIcon } from "@heroicons/react/24/outline";
 import Tags from "@/components/tags";
 import Cards from "./card";
-
-export type Item = {
-  id: number;
-  title: string;
-  createdat: string;
-  description: string;
-  attachment: string | null;
-  attachmentalt: string | null;
-  reference: string | null;
-  parent_note: number | null;
-  authorid: number;
-  pinned: boolean;
-};
+import { Item } from "@/types/types";
 
 /* eslint-disable @next/next/no-img-element */
 export default function Detail({

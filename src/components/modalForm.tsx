@@ -1,14 +1,6 @@
 import { createNote } from "@/app/actions";
 import NoteSelect from "./parentSelect";
-
-export type NewItem = {
-  title: string;
-  description: string;
-  attachment: string | null;
-  attachmentalt: string | null;
-  parentNote: number | null;
-  authorid: number;
-};
+import { NewItem } from "@/types/types";
 
 export default function ModalForm() {
   async function handleSubmit(formData: FormData) {

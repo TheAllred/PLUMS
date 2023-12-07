@@ -1,5 +1,5 @@
 import pool from "@/db/vercel";
-import { Item } from "@/components/detail";
+import { Item } from "@/types/types";
 export default async function Tags({ id }) {
   const { rows } =
     await pool.sql<Item>`SELECT tag_name FROM tags where tag_id = ${id};`;

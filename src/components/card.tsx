@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import type { Item } from "@/components/detail";
+import type { Item } from "./Item";
 export default function Cards({ items }: { items: Item[] }) {
   return (
     <section

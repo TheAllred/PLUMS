@@ -1,6 +1,6 @@
 import AddButton from "@/components/addButton";
 import pool from "@/db/vercel";
-import type { Item } from "@/components/detail";
+import type { Item } from "@/components/Item";
 import Cards from "@/components/card";
 import DeleteTag from "@/components/deleteTag";
 

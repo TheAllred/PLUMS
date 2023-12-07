@@ -3,7 +3,7 @@ import { deleteNote } from "@/app/actions";
 import { pinNote } from "@/app/actions";
 import { DocumentMinusIcon } from "@heroicons/react/24/outline";
 import { BookmarkIcon } from "@heroicons/react/24/outline";
-import { Item } from "./detail";
+import { Item } from "@/types/types";
 
 export function PinNoteButton({ item }: { item: Item }) {
   return (
