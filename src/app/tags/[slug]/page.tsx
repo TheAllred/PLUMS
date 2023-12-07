@@ -3,6 +3,7 @@ import pool from "@/db/vercel";
 import type { Item } from "@/components/Item";
 import Cards from "@/components/card";
 import DeleteTag from "@/components/deleteTag";
+import TagNote from "@/components/TagNote";
 
 export default async function Page({ params }: { params: { slug: number } }) {
   const { rows } = await pool.sql<Item & { tag_name: string }>`
@@ -18,7 +19,9 @@ export default async function Page({ params }: { params: { slug: number } }) {
     <>
       {rows.length > 0 ? (
         <div>
-          <h1>Notes tagged as {rows[0].tag_name}:</h1>
+          <h1>
+            Notes tagged as <strong> {rows[0].tag_name}</strong>:
+          </h1>
           {/* <h1>{JSON.stringify(data[0])}</h1> */}
           <Cards items={rows} />
         </div>
@@ -27,6 +30,7 @@ export default async function Page({ params }: { params: { slug: number } }) {
           <p>Tag has no items.</p>
         </div>
       )}
+      <TagNote tag_id={params.slug}></TagNote>
       <DeleteTag id={params.slug} />
     </>
   );

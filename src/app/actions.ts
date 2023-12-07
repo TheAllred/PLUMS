@@ -9,15 +9,26 @@ import { UpdatedItem } from "@/types/types";
 export async function createNote(newItem: NewItem) {
   console.log("createNote", newItem);
 
-  const {
-    rows: [{ id }],
-  } = await pool.sql<{ id: number }>`
-    INSERT INTO notes (title, description, attachment,attachmentalt, authorid, parent_note)
-    VALUES (${newItem.title}, ${newItem.description}, ${newItem.attachment}, ${newItem.attachmentalt}, ${newItem.authorid}, ${newItem.parentNote})
-    returning id
+  await pool.sql<{ id: number }>`
+    INSERT INTO notes (
+      title
+      , description
+      , attachment
+      ,attachmentalt
+      , authorid
+      , parent_note
+      , referencelink)
+    VALUES (
+      ${newItem.title},
+       ${newItem.description},
+       ${newItem.attachment},
+       ${newItem.attachmentalt},
+       ${newItem.authorid},
+       ${newItem.parentNote},
+       ${newItem.referencelink})
   `;
   revalidatePath("/", "layout");
-  redirect(`/note/${id}`);
+  redirect(`/topics`);
 }
 export async function updateNote(updatedItem: UpdatedItem) {
   console.log("updateNote", updatedItem);
@@ -28,7 +39,7 @@ export async function updateNote(updatedItem: UpdatedItem) {
     description = ${updatedItem.description},
     attachment = ${updatedItem.attachment},
     attachmentalt = ${updatedItem.attachmentalt},
-    authorid = ${updatedItem.authorid}
+    referencelink = ${updatedItem.referencelink}
     WHERE id = ${updatedItem.id};
   `;
   revalidatePath("/", "layout");
@@ -36,8 +47,8 @@ export async function updateNote(updatedItem: UpdatedItem) {
 }
 export async function deleteNote(id: number) {
   try {
-    const item: Item = await pool.sql<Item>`
-    DELETE FROM notes where id =${id} RETURNING id;
+    await pool.sql<Item>`
+    DELETE FROM notes where id =${id} ;
   `;
 
     console.log(id);
@@ -91,4 +102,20 @@ export async function deleteTag(tag_id: number) {
   }
   revalidatePath("/", "layout");
   redirect("/tags");
+}
+
+export async function LinkTagtoNote(note: number, tag: number) {
+  console.log("LinkTagtoNote", note, tag);
+  try {
+    await pool.sql`
+    INSERT INTO note_tags (note_id, tag_id) VALUES (${note}, ${tag})
+  `;
+
+    console.log("Added tag");
+  } catch (e) {
+    console.log(e);
+    console.log("Failed to add tag");
+  }
+  revalidatePath("/", "layout");
+  redirect(`/tags/${tag}`);
 }

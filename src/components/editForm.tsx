@@ -22,6 +22,19 @@ export default function EditForm({ item }: { item: Item }) {
     updatedValue = e.target.value;
     setAttachment(updatedValue);
   };
+  const [attachmentAlt, setAttachmentAlt] = useState(item.attachmentalt);
+  const handleChangeAttachmentAlt = (e: any) => {
+    let updatedValue = "";
+    updatedValue = e.target.value;
+    setAttachmentAlt(updatedValue);
+  };
+
+  const [referenceLink, setReferenceLink] = useState(item.referencelink);
+  const handleChangeReferenceLink = (e: any) => {
+    let updatedValue = "";
+    updatedValue = e.target.value;
+    setReferenceLink(updatedValue);
+  };
 
   const updateNoteHandler = (event) => {
     event.preventDefault();
@@ -30,6 +43,8 @@ export default function EditForm({ item }: { item: Item }) {
       title: title,
       description: description,
       attachment: attachment,
+      attachmentalt: attachmentAlt,
+      referencelink: referenceLink,
     });
   };
 
@@ -92,6 +107,21 @@ export default function EditForm({ item }: { item: Item }) {
               value={attachment ? attachment : ""}
             />
             <br />
+            <label htmlFor="attachmentAlt" className="font-head font-bold">
+              COVER IMAGE ALT:
+            </label>
+            <br />
+            <input
+              type="text"
+              name="attachmentAlt"
+              id="attachmentAlt"
+              className="border mb-5"
+              onChange={(e: any) => {
+                handleChangeAttachmentAlt(e);
+              }}
+              value={attachmentAlt ? attachmentAlt : ""}
+            />
+            <br />
 
             <label htmlFor="reference" className="font-head font-bold">
               REFERENCE LINK:
@@ -105,6 +135,10 @@ export default function EditForm({ item }: { item: Item }) {
               name="reference"
               id="reference"
               className="border mb-5"
+              onChange={(e: any) => {
+                handleChangeReferenceLink(e);
+              }}
+              value={referenceLink ? referenceLink : ""}
             />
             <br />
 

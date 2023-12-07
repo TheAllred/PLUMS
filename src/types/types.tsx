@@ -5,7 +5,7 @@ export type Item = {
   description: string;
   attachment: string | null;
   attachmentalt: string | null;
-  reference: string | null;
+  referencelink: string | null;
   parent_note: number | null;
   authorid: number;
   pinned: boolean;
@@ -17,6 +17,8 @@ export type NewItem = {
   attachmentalt: string | null;
   parentNote: number | null;
   authorid: number;
+  referencelink: string | null;
+  parent_note: number | null;
 };
 export type UpdatedItem = {
   id: number;
@@ -24,7 +26,5 @@ export type UpdatedItem = {
   description: string | null;
   attachment: string | null;
   attachmentalt: string | null;
-  indent: number | null;
-  sortorder: number | null;
-  authorid: number;
+  referencelink: string | null;
 };
