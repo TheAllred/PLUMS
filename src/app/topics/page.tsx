@@ -6,7 +6,7 @@ import AddButton from "@/components/addButton";
 import ModalForm from "@/components/modalForm";
 
 export default async function Page() {
-  const { rows } = await pool.sql<Item>`SELECT * FROM notes;`;
+  const { rows } = await pool.sql<Item>`SELECT * FROM notes where parent_note is null;`;
   return (
     <>
       <Cards items={rows} />

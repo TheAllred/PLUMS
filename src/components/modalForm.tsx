@@ -21,7 +21,7 @@ export default function ModalForm() {
       parentNote: Number(formData.get("parent")),
       authorid: 1,
     };
-    createNote(newNewItem);
+    await createNote(newNewItem);
   }
 
   return (

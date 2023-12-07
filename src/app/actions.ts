@@ -6,39 +6,31 @@ import { NewItem } from "@/components/modalForm";
 import { Item } from "@/components/notes";
 import { UpdatedItem } from "@/components/updateForm";
 
-export async function createNote(NewItem: NewItem) {
-  console.log("createNote", NewItem);
-  try {
-    await pool.sql<NewItem>`
-    INSERT INTO notes (title, description, attachment,attachmentalt, authorid)
-    VALUES (${NewItem.title}, ${NewItem.description}, ${NewItem.attachment}, ${NewItem.attachmentalt}, ${NewItem.authorid})
-  `;
+export async function createNote(newItem: NewItem) {
+  console.log("createNote", newItem);
 
-    console.log("Added todo");
-  } catch (e) {
-    console.log(e);
-    console.log("Failed to add todo");
-  }
+  const {
+    rows: [{ id }],
+  } = await pool.sql<{ id: number }>`
+    INSERT INTO notes (title, description, attachment,attachmentalt, authorid, parent_note)
+    VALUES (${newItem.title}, ${newItem.description}, ${newItem.attachment}, ${newItem.attachmentalt}, ${newItem.authorid}, ${newItem.parentNote})
+    returning id
+  `;
   revalidatePath("/", "layout");
-  redirect("/topics");
+  redirect(`/note/${id}`);
 }
-export async function updateNote(UpdatedItem: UpdatedItem) {
-  console.log("updateNote", UpdatedItem);
-  try {
+export async function updateNote(updatedItem: UpdatedItem) {
+  console.log("updateNote", updatedItem);
+ 
     await pool.sql<UpdatedItem>`
     UPDATE notes
-    SET title = ${UpdatedItem.title},
-    description = ${UpdatedItem.description},
-    attachment = ${UpdatedItem.attachment},
-    attachmentalt = ${UpdatedItem.attachmentalt},
-    authorid = ${UpdatedItem.authorid}
-    WHERE id = ${UpdatedItem.id};
+    SET title = ${updatedItem.title},
+    description = ${updatedItem.description},
+    attachment = ${updatedItem.attachment},
+    attachmentalt = ${updatedItem.attachmentalt},
+    authorid = ${updatedItem.authorid}
+    WHERE id = ${updatedItem.id};
   `;
-    console.log("#####Updated note####");
-  } catch (e) {
-    console.log(e);
-    console.log("Failed to update note");
-  }
   revalidatePath("/", "layout");
   redirect("/topics");
 }
@@ -60,18 +52,13 @@ export async function deleteNote(id: number) {
 
 export async function pinNote(id: number, pinnedState: boolean) {
   const setPinned = pinnedState ? false : true;
-
-  try {
-    await pool.sql<UpdatedItem>`
+  
+  await pool.sql`
     UPDATE notes
     SET pinned = ${setPinned}
     WHERE id = ${id};
   `;
-    console.log("#####Toggled pinned note####");
-  } catch (e) {
-    console.log(e);
-    console.log("Failed to pin note");
-  }
+
   revalidatePath("/", "layout");
   redirect("/topics");
 }
@@ -105,4 +92,3 @@ export async function deleteTag(tag_id: number) {
   revalidatePath("/", "layout");
   redirect("/tags");
 }
-
