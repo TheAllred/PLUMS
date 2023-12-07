@@ -14,8 +14,7 @@ export type Item = {
   attachment: string | null;
   attachmentalt: string | null;
   reference: string | null;
-  indent: number;
-  sortorder: number;
+  parentnote: number | null;
   authorid: number;
   pinned: boolean;
 };
