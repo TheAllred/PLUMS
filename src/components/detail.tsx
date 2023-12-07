@@ -5,7 +5,6 @@ import { PencilSquareIcon } from "@heroicons/react/24/outline";
 import { BookmarkIcon } from "@heroicons/react/24/outline";
 import { pinNote } from "@/app/actions";
 import Tags from "@/components/tags";
-import { title } from "process";
 export type Item = {
   id: number;
   title: string;
