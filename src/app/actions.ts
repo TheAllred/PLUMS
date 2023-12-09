@@ -9,7 +9,7 @@ import { UpdatedItem } from "@/types/types";
 export async function createNote(newItem: NewItem) {
   console.log("createNote", newItem);
 
-  await pool.sql<{ id: number }>`
+  await pool.sql<NewItem>`
     INSERT INTO notes (
       title
       , description

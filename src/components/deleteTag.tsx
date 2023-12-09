@@ -1,6 +1,7 @@
 "use client";
 import { TrashIcon } from "@heroicons/react/24/outline";
 import { deleteTag } from "@/app/actions";
+// @ts-ignore
 export default function DeleteTag({ id }) {
   function handleDelete() {
     deleteTag(id);

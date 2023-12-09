@@ -2,14 +2,15 @@
 
 import { createTag } from "@/app/actions";
 import { useState } from "react";
-
 export default function TagInputs() {
   const [tagName, setTagName] = useState("");
+  //@ts-ignore
   function handleSubmit(event) {
     event.preventDefault();
     createTag(tagName);
   }
 
+  //@ts-ignore
   function handleInputChange(event) {
     setTagName(event.target.value);
   }

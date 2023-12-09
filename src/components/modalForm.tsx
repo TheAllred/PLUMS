@@ -5,14 +5,16 @@ import { NewItem } from "@/types/types";
 export default function ModalForm() {
   async function handleSubmit(formData: FormData) {
     "use server";
+    // @ts-ignore
     const newNewItem: NewItem = {
       title: formData.get("title") as string,
       description: formData.get("description") as string,
       attachment: formData.get("attachment") as string,
       attachmentalt: null,
-      parentNote: Number(formData.get("parent")),
+      parentNote: Number(formData.get("parent")) || null,
       authorid: 1,
     };
+    console.log(newNewItem);
     await createNote(newNewItem);
   }
 

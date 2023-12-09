@@ -35,7 +35,7 @@ export default function EditForm({ item }: { item: Item }) {
     updatedValue = e.target.value;
     setReferenceLink(updatedValue);
   };
-
+  // @ts-ignore
   const updateNoteHandler = (event) => {
     event.preventDefault();
     updateNote({
@@ -140,16 +140,6 @@ export default function EditForm({ item }: { item: Item }) {
               }}
               value={referenceLink ? referenceLink : ""}
             />
-            <br />
-
-            <label htmlFor="tags" className="font-head font-bold">
-              TAGS:
-            </label>
-            <br />
-            <input type="text" name="tags" id="tags" className="border" />
-            <p className="font-body italic text-xs">
-              (Separate tags with commas)
-            </p>
             <br />
             <button
               type="submit"

@@ -3,6 +3,7 @@ import { LinkTagtoNote } from "@/app/actions";
 export default function TagNote({ tag_id }: { tag_id: number }) {
   async function handleSubmit(formData: FormData) {
     "use server";
+    // @ts-ignore
     await LinkTagtoNote(formData.get("parent"), tag_id);
   }
   return (
